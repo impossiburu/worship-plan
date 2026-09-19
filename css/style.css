@@ -1,0 +1,445 @@
+/* =====================================================
+   FORBUILDER
+   Основные стили
+===================================================== */
+
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+    --bg-main: #15181f;
+    --bg-panel: #1e222b;
+    --bg-card: #252a35;
+
+    --border: #353b48;
+
+    --primary: #3b82f6;
+    --primary-hover: #5b96ff;
+
+    --danger: #ef4444;
+    --danger-hover: #ff5d5d;
+
+    --text: #ffffff;
+    --text-secondary: #aeb7c6;
+
+    --radius: 12px;
+
+    --shadow:
+        0 8px 30px rgba(0,0,0,.25);
+
+    --transition:
+        .18s ease;
+}
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: "Segoe UI", Inter, Roboto, Arial, sans-serif;
+    background: var(--bg-main);
+    color: var(--text);
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* =====================================================
+   APP
+===================================================== */
+
+#app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.app-header {
+    /* height: 76px; */
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-logo {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--primary);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.brand span {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+    background: #303644;
+    color: var(--text);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: #3a4150;
+}
+
+.btn.active {
+    background: var(--primary);
+}
+
+.btn.primary {
+    background:var(--primary);
+}
+
+.btn.primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn.danger {
+    background:rgba(239,68,68,.15);
+    color:#ff8a8a;
+}
+
+.btn.danger:hover {
+    background: var(--danger);
+    color: white;
+}
+
+.mode-switch {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+/* =====================================================
+   WORKSPACE
+===================================================== */
+
+.workspace {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+    width: 320px;
+    padding: 18px;
+    overflow-y: auto;
+    background: var(--bg-panel);
+    border-right: 1px solid var(--border);
+}
+
+.panel {
+    background:  var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+}
+
+.panel h2 {
+    margin: 0 0 14px;
+    font-size: 16px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 14px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+input,
+textarea {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #151922;
+    color: white;
+    padding: 10px;
+    outline: none;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary);
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    border-top: 1px solid white;
+}
+
+.editor {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.preview {
+    max-width: 850px;
+    margin: 0 auto;
+    background: white;
+    color: black;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.hidden {
+    display:none;
+}
+
+/* =====================================================
+   COMPONENT CARDS
+===================================================== */
+
+.component-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom:14px;
+    animation: showCard .18s ease;
+}
+
+@keyframes showCard {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.card-header strong {
+    flex: 1;
+}
+
+.drag-handle {
+    color: var(--text-secondary);
+    cursor: grab;
+}
+
+.delete-button {
+    border: none;
+    background: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    color: #ff7777;
+}
+
+.checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width: 900px){
+    .workspace {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        max-height: 50%;
+    }
+}
+
+/* =====================================================
+   PRINT & PRINT DOCUMENT PREVIEW
+===================================================== */
+
+.print-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.print-header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+
+.print-date {
+    margin-top: 8px;
+    color: #555;
+}
+
+.print-note {
+    border-left: 3px solid #777;
+    padding-left: 15px;
+    margin-bottom: 25px;
+    color: #444;
+}
+
+.print-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.item-number {
+    width: 35px;
+}
+
+.item-content {
+    flex: 1;
+}
+
+.item-note {
+    margin-top: 5px;
+    color: #666;
+    font-size: 14px;
+}
+
+.print-bold {
+    font-weight: bold;
+}
+
+.print-hymn {
+    margin: 18px 0;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-style: italic;
+}
+
+.print-hymn span {
+    font-weight: bold;
+}
+
+.print-items.compact .print-item {
+    margin-bottom: 6px;
+}
+
+.print-items.compact .print-hymn {
+    margin: 8px 0;
+}
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    .app-header,
+    .sidebar {
+        display: none !important;
+    }
+
+    .workspace {
+        display: block;
+    }
+
+    .content {
+        padding: 0;
+    }
+
+    .preview {
+        display: block;
+        width: 100%;
+        max-width: none;
+        padding: 12mm;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .component-card {
+        break-inside: avoid;
+    }
+
+    .print-items {
+        font-size: 16px;
+    }
+}
